@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+
+.search-container {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo_list-container {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+/* INPUTS */
+.form-container {
+    background: crimson;
+    text-align: center;
+    padding: 20px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+}
+
+.form-container form input {
+    width: 100%;
+    padding:10px 15px;
+    font-size: 17px;
+    margin:8px 0;
+    background: #eee;
+    border-radius: 5px;
+}
+
+/* TO-DO LIST AND DONE LIST */
+
+.to_do-container {
+    text-align: center;
+    padding: 15px;
+}
+
+.done-container {
+    text-align: center;
+    padding: 15px;
+}
+
+.check-btn {
+    background: green;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.to-done {
+	color: white;
+	background: green;
+	padding: 1px 6px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+
+.to-delete {
+	color: white;
+	background: crimson;
+	padding: 1px 6px;
+	border-radius: 3px;
+	text-decoration: none;
+}
