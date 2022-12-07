@@ -1,11 +1,16 @@
 <?php
+require_once 'connect.php';
+$connection = @new mysqli($host, $user, $password, $db_name);
 
+$create_table = mysqli_query($con, "CREATE TABLE IF NOT EXISTS `todo` (id INT(11) KEY AUTO_INCREMENT,
+description VARCHAR(255) NOT NULL,
+type VARCHAR(11) NOT NULL)");
 
 
 if(isset($_POST['submit'])) {
 
-    require_once 'connect.php';
-    $connection = @new mysqli($host, $user, $password, $db_name);
+
+
 
     if($connection->connect_errno!=0) {
 
@@ -15,9 +20,9 @@ if(isset($_POST['submit'])) {
     else {
         $desc = $_POST['desc'];
         $sql = "INSERT INTO todo (description, type) VALUES ('$desc', 'to-do')";
+        
 
-            if ($connection->query($sql) === TRUE) {
-            } else {
+         if ($connection->query($sql) === FALSE) {
                 echo "Error: " . $sql . "<br>" . $connection->error;
             }
             
@@ -57,10 +62,6 @@ if(isset($_POST['submit'])) {
                 $connection = @new mysqli($host, $user, $password, $db_name);
                 if($result = $connection->query($sql2)){
                     $all_records = $result->num_rows;
-                    if(empty($result)){
-                        $table_creation = "CREATE TABLE todo (id int(255) NOT NULL AUTO_INCREMENT, description varchar(255) NOT NULL, type varchar(255) NOT NULL";
-                        $result2 = mysqli_query($connection, $table_creation);
-                    }
                     if($all_records>0){
                         while($row = $result->fetch_assoc()) {
                             $item_id = $row['id'];
