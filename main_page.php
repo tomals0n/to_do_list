@@ -13,9 +13,8 @@ if(isset($_POST['submit'])) {
     }
 
     else {
-        $id = $_POST['id'];
         $desc = $_POST['desc'];
-        $sql = "INSERT INTO todo (id, description, type) VALUES ('$id','$desc', 'to-do')";
+        $sql = "INSERT INTO todo (description, type) VALUES ('$desc', 'to-do')";
 
             if ($connection->query($sql) === TRUE) {
             } else {
@@ -44,7 +43,6 @@ if(isset($_POST['submit'])) {
         <div class="form-container">
             <form method='post'>
                 <h1>ADD ITEM</h1>
-                <input type="number" name="id" required placeholder="Input an ID">
                 <input type="text" name="desc" required placeholder="Input description">
                 <input type="submit" name="submit" value="ADD TO LIST" class="form-btn">
             </form>
@@ -60,7 +58,7 @@ if(isset($_POST['submit'])) {
                 if($result = $connection->query($sql2)){
                     $all_records = $result->num_rows;
                     if(empty($result)){
-                        $table_creation = "CREATE TABLE todo (id int(255) NOT NULL, description varchar(255) NOT NULL, type varchar(255) NOT NULL";
+                        $table_creation = "CREATE TABLE todo (id int(255) NOT NULL AUTO_INCREMENT, description varchar(255) NOT NULL, type varchar(255) NOT NULL";
                         $result2 = mysqli_query($connection, $table_creation);
                     }
                     if($all_records>0){
@@ -69,9 +67,8 @@ if(isset($_POST['submit'])) {
                             $description = $row['description'];
                             $item_type = $row['type'];
                             if($item_type == 'to-do'){
-                                echo "<h4>ID ".$item_id;
                                 echo "<h3>➼ ".$description." ";
-                                echo "<a class='to-done' href='main_page.php?done_task=".$row['id']."'>✔</a><br/>";
+                                echo "<a class='to-done' href='main_page.php?done_task=".$row['id']."'>✔</a>";
                                 if (isset($_GET['done_task'])) {
                                     $item_id = $_GET['done_task'];
                                     mysqli_query($connection, "UPDATE todo SET type='done' WHERE id='$item_id'");
@@ -99,7 +96,6 @@ if(isset($_POST['submit'])) {
                             $description = $row['description'];
                             $item_type = $row['type'];
                             if($item_type == 'done'){
-                                echo "<h4>ID ".$item_id;
                                 echo "<h3>➼ ".$description." ";
                                 echo "<a class='to-delete' href='main_page.php?delete_task=".$row['id']."'>✘</a>";
                                 if (isset($_GET['delete_task'])) {
