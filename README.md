@@ -3,8 +3,12 @@ Simple to-do made in PHP
 ## What you need to run it?
 - XAMPP and start Apache and MySQL 
 - Type in browser localhost:8080/phpmyadmin
-- Create "todo_list" database and TABLE todo | id int(255) NOT NULL, description varchar(255) NOT NULL, type varchar(255) NOT NULL (made it to create if not exists but may be bugged)
-- Go to localhost:8080/main_page.php
+- Create "todo_list" database and TABLE todo | id int(255) NOT NULL AUTO INCREMENT, description varchar(255) NOT NULL, type varchar(255) NOT NULL (made it to create if not exists but may be bugged)
+- Create folder in XAMPP > htdocs
+- Enter in browser: localhost:8080/your_folder_name/main_page.php
+## Updates
+- Added auto increment to id, now you can just type description of your task
+- Hide id of task and fix visual bugs
 
 ### You can add your task and it will automatically go to "TO-DO LIST"
 
