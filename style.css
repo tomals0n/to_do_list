@@ -9,25 +9,29 @@
 }
 
 .search-container {
-    height: 50vh;
+    height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .todo_list-container {
-    height: 50vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 300px;
 }
 
 /* INPUTS */
 .form-container {
     background: crimson;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    color: #fff;
 }
 
 .form-container form {
@@ -50,25 +54,27 @@
 
 .to_do-container {
     text-align: center;
+    max-height: 60vh;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .done-container {
     text-align: center;
+    max-height: 60vh;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.check-btn {
-    background: green;
-    padding: 5px;
-    border-radius: 15px;
-    cursor: pointer;
-}
 
 .to-done {
 	color: white;
 	background: green;
-	padding: 1px 6px;
+	padding: 1px 4px;
 	border-radius: 3px;
 	text-decoration: none;
 }
